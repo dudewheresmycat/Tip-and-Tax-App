@@ -3,7 +3,6 @@ package tipAndTaxMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -16,6 +15,8 @@ public class TipAndTaxController {
 	private double tipAmount;
 	private double cost;
 	
+	@FXML
+	private TextField taxIn;
 
     @FXML
     private Label outputLabel1;
@@ -30,7 +31,7 @@ public class TipAndTaxController {
     private Label invalidLabel;
 
     @FXML
-    private Button CalculateTotal;
+    private Button calculateTotal;
 
     @FXML
     private TextField userInput;
@@ -49,11 +50,9 @@ public class TipAndTaxController {
     
     @FXML
     private RadioButton noTip;
-
-    @FXML
-    void e80101(ActionEvent event) {
-
-    }
+    
+    
+   
     
     @FXML
     void checkListener(ActionEvent event) {
@@ -73,14 +72,18 @@ public class TipAndTaxController {
     @FXML
     void buttonListener(ActionEvent event) {
     	invalidLabel.setVisible(false);
+    	//get cost from text field
     	try{
     		cost = Double.parseDouble(userInput.getText());
-    		
     	}catch(NumberFormatException e){
     		invalidLabel.setVisible(true);
     	}
-    	
-    	// tax
+    	// tax, gets tax amount from text field
+    	try{
+    	taxConstant = ((Double.parseDouble(taxIn.getText()))/100);
+    	}catch(NumberFormatException n){
+    		invalidLabel.setVisible(true);
+    	}
     	taxAmount = cost * taxConstant;
     	String taxOut = String.format("$%,.02f", taxAmount);
     	outputLabel1.setText(taxOut);
@@ -93,5 +96,6 @@ public class TipAndTaxController {
     	String totalOut = String.format("$%,.02f", total);
     	outputLabel3.setText(totalOut);
     }
+    
 
 }
