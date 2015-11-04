@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tipAndTaxMain.TipAndTaxController">
+   <children>
+      <Button fx:id="CalculateTotal" layoutX="31.0" layoutY="153.0" mnemonicParsing="false" onAction="#buttonListener" text="Calculate Tip and Tax" />
+      <TextField fx:id="userInput" layoutX="286.0" layoutY="59.0" prefHeight="25.0" prefWidth="203.0" />
+      <Label layoutX="286.0" layoutY="231.0" prefHeight="42.0" prefWidth="88.0" text="Total Meal Cost:" />
+      <Label fx:id="invalidLabel" layoutX="31.0" layoutY="194.0" prefHeight="42.0" prefWidth="156.0" text="Input Only Numbers Please" textFill="#e80101" visible="false" />
+      <Label layoutX="286.0" layoutY="18.0" prefHeight="33.0" prefWidth="203.0" text="Base Meal Cost:" />
+      <Label fx:id="outputLabel3" layoutX="381.0" layoutY="235.0" prefHeight="35.0" prefWidth="129.0" text="\$0.00">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="287.0" layoutY="189.0" text="Tip Amount:" />
+      <Label layoutX="286.0" layoutY="139.0" text="Tax Amount:" />
+      <Label fx:id="outputLabel2" layoutX="381.0" layoutY="180.0" prefHeight="35.0" prefWidth="129.0" text="\$0.00">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="outputLabel1" layoutX="381.0" layoutY="130.0" prefHeight="35.0" prefWidth="129.0" text="\$0.00">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="checkToAddTip3" layoutX="31.0" layoutY="91.0" mnemonicParsing="false" onAction="#checkListener" text="10% Tip">
+         <toggleGroup>
+            <ToggleGroup fx:id="tips" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="checkToAddTip2" layoutX="31.0" layoutY="63.0" mnemonicParsing="false" onAction="#checkListener" text="15% Tip" toggleGroup="$tips" />
+      <RadioButton fx:id="checkToAddTip1" layoutX="31.0" layoutY="35.0" mnemonicParsing="false" onAction="#checkListener" text="20% Tip" toggleGroup="$tips" />
+      <RadioButton fx:id="noTip" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" onAction="#checkListener" selected="true" text="No Tip" toggleGroup="$tips" />
+   </children>
+</AnchorPane>
